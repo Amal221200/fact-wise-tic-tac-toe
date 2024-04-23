@@ -52,11 +52,17 @@ function App() {
         }
       </div>
 
-      {winner && (
-        <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginBlockStart: '10px' }}>
-          <h2>{winner.user} {winner.user === "Draw" ? "! no one won this round" : "is the winner"}</h2> <button type="button" onClick={() => location.reload()}>Reset</button>
-        </div>
-      )}
+      <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginBlockStart: '10px' }}>
+        {
+          winner ? (
+            <>
+              <h2>{`${winner.user}${winner.user === "Draw" ? "! No one won this round" : "is the winner"}`}</h2>
+              <button type="button" onClick={() => location.reload()}>Reset</button>
+            </>
+          ) :
+            <h2>{`${chance} turn`}</h2>
+        }
+      </div>
     </>
   )
 }
